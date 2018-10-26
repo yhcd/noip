@@ -24,9 +24,9 @@ func main () {
 		body, err := ioutil.ReadAll(resp.Body)
 		if string(body) != ipInGit {
 			ioutil.WriteFile("ip.txt", body, 0666)
-			exec.Command("git add ip.txt").Run()
-			exec.Command("git commit -m updateip").Run()
-			exec.Command("git push").Run()
+			exec.Command("git","add","ip.txt").Run()
+			exec.Command("git","commit", "-m", "updateip").Run()
+			exec.Command("git","push").Run()
 		}
 		time.Sleep(5*60*time.Second)
 	}

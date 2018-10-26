@@ -22,7 +22,7 @@ func main () {
 		}
 		defer resp.Body.Close()
 		body, err := ioutil.ReadAll(resp.Body)
-		if string(body) != ipInGit {
+		if string(body) != ipInGit { 
 			ioutil.WriteFile("ip.txt", body, 0666)
 			exec.Command("git","add","ip.txt").Run()
 			exec.Command("git","commit", "-m", "updateip").Run()
